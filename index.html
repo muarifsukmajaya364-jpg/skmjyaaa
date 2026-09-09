@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mu'Arif Sukma Jaya — Visual Designer & Creative Portfolio</title>
+  
+  <!-- SEO & Open Graph Meta Tags (Optimasi Mesin Pencari & Sosmed Sharing) -->
+  <meta name="description" content="Official Portfolio of Mu'Arif Sukma Jaya — Commercial Photographer &amp; Visual Designer specializing in Studio Photography, Commercial Posters, and Cinematic Visuals." />
+  <meta name="keywords" content="Mu'Arif Sukma Jaya, Commercial Photographer, Photography, Visual Designer, Graphic Designer, Cinematic Video, Motion Graphics, Alight Motion, Photoshop, Illustrator, Portfolio, Bogor, Indonesia" />
+  <meta name="author" content="Mu'Arif Sukma Jaya" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / WhatsApp / Facebook Link Preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mu'Arif Sukma Jaya — Commercial Photographer &amp; Visual Designer Portfolio" />
+  <meta property="og:description" content="Blending visual aesthetics with marketing purpose, one pixel at a time. Commercial Photography, Poster Design &amp; Motion Graphics." />
+  <meta property="og:image" content="assets/images/profile.jpeg" />
+
+  <!-- Twitter / X Card Preview -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mu'Arif Sukma Jaya — Visual Designer Portfolio" />
+  <meta name="twitter:description" content="Commercial Poster Design, Studio Photography & Motion Graphics." />
+  <meta name="twitter:image" content="assets/images/profile.jpeg" />
+  
+  <!-- Google Fonts: Playfair Display, Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet" />
+  
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Ambient Grid & Spotlight Backgrounds -->
+  <div class="technical-grid-bg"></div>
+  <div class="ambient-spotlight"></div>
+
+  <!-- Scroll Progress Indicator -->
+  <div id="scroll-progress"></div>
+
+  <!-- Cinematic Studio Preloader -->
+  <div id="preloader">
+    <div class="preloader-badge">
+      <span class="pulse-dot"></span>
+      <span>SYSTEM READY // 2026</span>
+    </div>
+    <h2 class="preloader-title">PORTFOLIO ARCHIVE</h2>
+    <div class="preloader-status">
+      <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
+      <div class="preloader-text">INITIALIZING WORKSPACE &bull; PLEASE WAIT</div>
+    </div>
+  </div>
+
+  <!-- Custom Dynamic Cursor -->
+  <div class="custom-cursor" id="custom-cursor"></div>
+  <div class="custom-cursor-follower" id="custom-cursor-follower"></div>
+
+  <!-- ======================================================================
+       NAVIGATION BAR
+       ====================================================================== -->
+  <header class="navbar" id="top-navbar">
+    <div class="container nav-container">
+      <a href="#hero" class="nav-brand" style="text-decoration: none; color: inherit;" aria-label="Return to top">
+        <div class="brand-badge">MS</div>
+        <div class="brand-info">
+          <h2>Mu'Arif.</h2>
+          <span>Visual Designer</span>
+        </div>
+      </a>
+
+      <!-- Desktop & Mobile Drawer Navigation Links -->
+      <nav class="nav-links" id="nav-links">
+        <li><a href="#hero" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#works">Works</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </nav>
+
+      <!-- Navbar Action Controls -->
+      <div class="nav-actions">
+        <!-- Live Chameleon Designer Color Tuner Popover Trigger -->
+        <div class="palette-dropdown-wrap" style="position: relative;">
+          <button class="palette-toggle-btn" id="palette-toggle-btn" aria-label="Cycle Designer Color Palette" title="Designer Color Engine">
+            <i class="fa-solid fa-palette"></i>
+          </button>
+          
+          <div class="palette-tuner-popover" id="palette-tuner-popover">
+            <div class="tuner-header">
+              <i class="fa-solid fa-sliders" style="color: var(--accent-cyan); font-size: 0.72rem;"></i>
+              <span>// DESIGNER PALETTE TUNER</span>
+            </div>
+            <div class="tuner-presets-row">
+              <button type="button" class="tuner-preset-chip" data-color="#f59e0b" style="--c: #f59e0b;" title="Amber Gold (Mu'Arif Signature)"></button>
+              <button type="button" class="tuner-preset-chip" data-color="#06b6d4" style="--c: #06b6d4;" title="Cyber Cyan"></button>
+              <button type="button" class="tuner-preset-chip" data-color="#a855f7" style="--c: #a855f7;" title="Electric Violet"></button>
+              <button type="button" class="tuner-preset-chip" data-color="#10b981" style="--c: #10b981;" title="Matrix Emerald"></button>
+              <button type="button" class="tuner-preset-chip" data-color="#f97316" style="--c: #f97316;" title="Flame Orange"></button>
+              <button type="button" class="tuner-preset-chip" data-color="#f43f5e" style="--c: #f43f5e;" title="Rose Studio"></button>
+            </div>
+            <div class="tuner-custom-row">
+              <label for="custom-hex-picker" class="tuner-custom-label">
+                <i class="fa-solid fa-eye-dropper"></i> Custom:
+              </label>
+              <input type="color" id="custom-hex-picker" class="tuner-color-input" value="#06b6d4" title="Pick any custom hex color" />
+              <button type="button" id="tuner-reset-btn" class="tuner-reset-btn" title="Reset Default">Reset</button>
+            </div>
+          </div>
+        </div>
+
+        <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Theme">
+          <i class="fa-solid fa-sun"></i>
+        </button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation Drawer">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ====================================================================
+         SECTION 1: HERO SECTION & INTERACTIVE LANYARD ID CARD
+         ==================================================================== -->
+    <section class="section hero-section" id="hero">
+      <div class="container hero-grid">
+        
+        <!-- Left Column: Content & Bio Badges -->
+        <div class="hero-content reveal active">
+          
+          <!-- Status Badges & Geographic Origin -->
+          <div class="badge-row">
+            <div class="status-chip">
+              <span class="pulse-dot"></span>
+              <span>17 Y.O.</span>
+              <span style="color: var(--text-dim);">&bull;</span>
+              <span>12th Grade DKV</span>
+              <span style="color: var(--text-dim);">/</span>
+              <strong style="color: var(--text-main);">SMK TI Annisa 2</strong>
+            </div>
+
+            <div class="status-chip">
+              <i class="fa-solid fa-location-dot" style="color: var(--accent-cyan);"></i>
+              <span>Indramayu &rarr; Bogor, West Java</span>
+            </div>
+
+            <div class="status-chip" style="display: none; @media(min-width: 600px){display:inline-flex;}">
+              <i class="fa-solid fa-terminal" style="color: var(--accent-cyan); font-size: 0.7rem;"></i>
+              <span>SYS_AUTH // VERIFIED</span>
+            </div>
+          </div>
+
+          <!-- Main Typography with Creative Typewriter Loop -->
+          <div class="hero-title-wrapper" style="display: flex; flex-direction: column; gap: 0.5rem; min-height: 160px;">
+            <div class="archive-label">PORTFOLIO ARCHIVE &bull; 2026</div>
+            <h1 class="hero-title" id="typewriter-headline" aria-label="Mu'Arif Sukma Jaya">
+              <span class="typewriter-text" id="typewriter-text">Mu'Arif Sukma Jaya.</span>
+              <span class="typewriter-cursor-box">
+                <span class="typewriter-cursor">|</span>
+              </span>
+            </h1>
+            <div class="hero-subtitle" id="hero-subtitle">Product &amp; Visual Designer</div>
+          </div>
+
+          <!-- Specialties Badges -->
+          <div class="specialties-list">
+            <span class="specialty-pill">Commercial Photography</span>
+            <span class="specialty-pill">Visual Designer</span>
+            <span class="specialty-pill">Cinematic Video &amp; Motion</span>
+            <span class="specialty-pill">Marketing Creative</span>
+          </div>
+
+          <!-- Narrative Tagline -->
+          <div class="hero-quote">
+            "Blending visual aesthetics with marketing purpose, one pixel at a time."
+          </div>
+
+          <!-- Interactive Software Toolkit Deck (Clickable Inspection Cards) -->
+          <div class="software-toolkit-deck">
+            <div class="toolkit-deck-label">
+              <i class="fa-solid fa-layer-group" style="color: var(--accent-cyan);"></i>
+              <span>// DESIGN SOFTWARE TOOLKIT (CLICK TO INSPECT)</span>
+            </div>
+            <div class="toolkit-deck-grid">
+              <!-- Photoshop Card -->
+              <div class="software-card" data-tool="photoshop" tabindex="0" role="button" aria-label="Inspect Adobe Photoshop Skills">
+                <div class="software-card-top">
+                  <div class="software-icon-box ps-box">
+                    <span class="software-tag">Ps</span>
+                  </div>
+                  <div class="software-info">
+                    <div class="software-name">Photoshop</div>
+                    <div class="software-spec">Raster &amp; Retouching</div>
+                  </div>
+                  <div class="software-action-hint">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Illustrator Card -->
+              <div class="software-card" data-tool="illustrator" tabindex="0" role="button" aria-label="Inspect Adobe Illustrator Skills">
+                <div class="software-card-top">
+                  <div class="software-icon-box ai-box">
+                    <span class="software-tag">Ai</span>
+                  </div>
+                  <div class="software-info">
+                    <div class="software-name">Illustrator</div>
+                    <div class="software-spec">Vector Art &amp; Print Layout</div>
+                  </div>
+                  <div class="software-action-hint">
+                    <i class="fa-solid fa-bezier-curve"></i>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Alight Motion Card (Official Swirl Vector Logo) -->
+              <div class="software-card" data-tool="alight-motion" tabindex="0" role="button" aria-label="Inspect Alight Motion Skills">
+                <div class="software-card-top">
+                  <div class="software-icon-box am-box">
+                    <svg class="am-official-logo" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Alight Motion Official Logo">
+                      <path d="M43.5 28.33a19.5 19.5 0 0 0-39 0" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M18.47 32.59a6.92 6.92 0 0 0 9.79-9.79" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M23.25 39.17a11.23 11.23 0 1 0 0-22.45" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M34.6 38.22a14.64 14.64 0 1 0-20.7-20.7" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <div class="software-info">
+                    <div class="software-name">Alight Motion</div>
+                    <div class="software-spec">Motion &amp; Keyframes</div>
+                  </div>
+                  <div class="software-action-hint">
+                    <i class="fa-solid fa-play"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dedicated Software Mastery & Fluctuating Calibration Bars (NO Percentage Numbers) -->
+          <div class="software-proficiency-deck">
+            <div class="proficiency-deck-header">
+              <div class="proficiency-deck-label">
+                <i class="fa-solid fa-sliders" style="color: var(--accent-cyan);"></i>
+                <span>// SOFTWARE MASTERY &amp; WORKFLOW CALIBRATION</span>
+              </div>
+              <span class="proficiency-telemetry-badge">
+                <span class="pulse-dot"></span>
+                <span>REAL-TIME TELEMETRY</span>
+              </span>
+            </div>
+
+            <div class="proficiency-bars-list">
+              <!-- Photoshop: Target 85% -->
+              <div class="proficiency-item">
+                <div class="proficiency-meta">
+                  <div class="proficiency-name-wrap">
+                    <span class="prof-tag ps-tag">Ps</span>
+                    <strong class="prof-title">Adobe Photoshop</strong>
+                  </div>
+                  <span class="prof-sub">Raster &amp; Photo Manipulation</span>
+                </div>
+                <div class="proficiency-track" aria-label="Adobe Photoshop Proficiency Level">
+                  <div class="software-meter-bar bar-photoshop"></div>
+                </div>
+              </div>
+
+              <!-- Alight Motion: Target 65% -->
+              <div class="proficiency-item">
+                <div class="proficiency-meta">
+                  <div class="proficiency-name-wrap">
+                    <span class="prof-tag am-tag">
+                      <svg class="am-official-logo" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 14px; height: 14px; vertical-align: middle;">
+                        <path d="M43.5 28.33a19.5 19.5 0 0 0-39 0" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M18.47 32.59a6.92 6.92 0 0 0 9.79-9.79" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M23.25 39.17a11.23 11.23 0 1 0 0-22.45" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M34.6 38.22a14.64 14.64 0 1 0-20.7-20.7" stroke="currentColor" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                    <strong class="prof-title">Alight Motion</strong>
+                  </div>
+                  <span class="prof-sub">Keyframe Curves &amp; Kinetic Motion</span>
+                </div>
+                <div class="proficiency-track" aria-label="Alight Motion Proficiency Level">
+                  <div class="software-meter-bar bar-alight-motion"></div>
+                </div>
+              </div>
+
+              <!-- Illustrator: Target 55% -->
+              <div class="proficiency-item">
+                <div class="proficiency-meta">
+                  <div class="proficiency-name-wrap">
+                    <span class="prof-tag ai-tag">Ai</span>
+                    <strong class="prof-title">Adobe Illustrator</strong>
+                  </div>
+                  <span class="prof-sub">Vector Art &amp; Print Advertising Collateral</span>
+                </div>
+                <div class="proficiency-track" aria-label="Adobe Illustrator Proficiency Level">
+                  <div class="software-meter-bar bar-illustrator"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Call to Action Buttons -->
+          <div class="hero-cta-group">
+            <a href="#works" class="btn btn-primary">
+              <span>View Works</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+            <a href="assets/cv_muarif.pdf" download="CV_MuArif_Sukma_Jaya.pdf" class="btn btn-secondary">
+              <i class="fa-solid fa-download" style="color: var(--accent-cyan);"></i>
+              <span>Download CV</span>
+            </a>
+
+            <a href="#contact" class="btn btn-outline">
+              <i class="fa-regular fa-paper-plane"></i>
+              <span>Let's Talk</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: The Interactive Lanyard ID Card Entity -->
+        <div class="hero-lanyard-wrapper reveal active">
+          <div class="lanyard-container" id="lanyard-container">
+            
+            <!-- Dynamic Vector Bezier Lanyard Ribbon -->
+            <svg class="lanyard-svg" id="lanyard-svg" viewBox="0 0 400 680">
+              <defs>
+                <!-- Woven Texture Pattern -->
+                <pattern id="wovenPattern" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                  <rect width="8" height="8" fill="#111317" />
+                  <line x1="0" y1="0" x2="0" y2="8" stroke="#1c1f26" stroke-width="1.5" />
+                  <line x1="4" y1="0" x2="4" y2="8" stroke="#0a0c0f" stroke-width="1.5" />
+                </pattern>
+
+                <!-- Soft Subtle Drop Shadow Filter -->
+                <filter id="strapShadowFilter" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.15" />
+                </filter>
+              </defs>
+
+              <!-- Dynamic Soft Shadows -->
+              <path id="strap-left-shadow" fill="none" stroke="#000000" stroke-width="14" stroke-opacity="0.1" filter="url(#strapShadowFilter)" stroke-linecap="round" />
+              <path id="strap-right-shadow" fill="none" stroke="#000000" stroke-width="14" stroke-opacity="0.1" filter="url(#strapShadowFilter)" stroke-linecap="round" />
+
+              <!-- Left & Right Woven Fabric Ribbons -->
+              <path id="strap-left" fill="none" stroke="url(#wovenPattern)" stroke-width="18" stroke-linecap="square" />
+              <path id="strap-right" fill="none" stroke="url(#wovenPattern)" stroke-width="18" stroke-linecap="square" />
+
+              <!-- Strap Center Path for Typography -->
+              <path id="strap-text-path" fill="none" />
+              <text font-family="'JetBrains Mono', monospace" font-size="7px" letter-spacing="0.22em" fill="rgba(148, 163, 184, 0.75)" text-transform="uppercase">
+                <textPath href="#strap-text-path" startOffset="18%">
+                  // MU'ARIF SUKMA JAYA &bull; VISUAL DESIGNER
+                </textPath>
+              </text>
+            </svg>
+
+            <!-- Physical Drop Shadow that responds to tilt -->
+            <div class="lanyard-shadow-element" id="lanyard-shadow"></div>
+
+            <!-- The Draggable 3D Badge Entity (Locked top-center pivot) -->
+            <div class="lanyard-badge-entity" id="lanyard-card">
+              
+              <!-- 1. Gunmetal Clasp Assembly (Locked directly to badge slot) -->
+              <div class="clasp-assembly">
+                <svg class="clasp-svg" width="44" height="52" viewBox="0 0 44 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="gunmetalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#4e5666" />
+                      <stop offset="40%" stop-color="#2a2e37" />
+                      <stop offset="80%" stop-color="#181a20" />
+                      <stop offset="100%" stop-color="#3b424f" />
+                    </linearGradient>
+                  </defs>
+                  
+                  <!-- Crimp Clamp -->
+                  <rect x="7" y="0" width="30" height="13" rx="2.5" fill="url(#gunmetalGrad)" stroke="#16181f" stroke-width="0.8" />
+                  <line x1="10" y1="6.5" x2="34" y2="6.5" stroke="#121418" stroke-width="1.2" />
+                  <circle cx="12" cy="6.5" r="1.2" fill="#64748b" />
+                  <circle cx="32" cy="6.5" r="1.2" fill="#64748b" />
+
+                  <!-- Swivel Ring -->
+                  <ellipse cx="22" cy="18" rx="6" ry="5" fill="none" stroke="url(#gunmetalGrad)" stroke-width="2.8" />
+
+                  <!-- Carabiner Hook Body -->
+                  <path d="M 17 22 C 17 22, 16 26, 16 32 C 16 37, 18 43, 22 45 C 26 43, 28 37, 28 32 C 28 26, 27 22, 27 22 Z" fill="url(#gunmetalGrad)" stroke="#1a1c22" stroke-width="1" />
+                  <line x1="25" y1="26" x2="25" y2="37" stroke="#71717a" stroke-width="1.8" stroke-linecap="round" />
+                  <rect x="24" y="29" width="3" height="4" rx="1" fill="#9ca3af" />
+                  
+                  <!-- Hook tip entering the slot -->
+                  <path d="M 20 44 C 20 47, 21 49, 22 49 C 23 49, 24 47, 24 44" fill="none" stroke="#64748b" stroke-width="3" stroke-linecap="round" />
+                </svg>
+              </div>
+
+              <!-- 2. Reinforced Vinyl Tab with Triple Punch Holes -->
+              <div class="vinyl-tab">
+                <div class="punch-hole-circle"></div>
+                <div class="punch-hole-slot">
+                  <div class="hook-through-slot"></div>
+                </div>
+                <div class="punch-hole-circle"></div>
+              </div>
+
+              <!-- 3. Matte Frosted Card Sleeve with 3D Double-Sided Flipping -->
+              <div class="matte-sleeve">
+                <div class="matte-sleeve-inner" id="badge-inner">
+                  
+                  <!-- PANDUAN FOTO LANYARD (DEPAN): Ganti src="assets/images/profile.jpeg" dengan foto profil Anda -->
+                  <!-- FRONT FACE: Full-Bleed Portrait Photo -->
+                  <div class="card-face card-face-front">
+                    <img src="assets/images/profile_3.jpg" alt="Mu'Arif Sukma Jaya" class="portrait-photo" onerror="this.src='assets/images/profile.jpeg'" />
+                  </div>
+
+                  <!-- PANDUAN KARTU LANYARD (BELAKANG): Informasi identitas kartu lanyard desainer -->
+                  <!-- BACK FACE: Official Studio Designer ID Pass -->
+                  <div class="card-face card-face-back">
+                    <div class="id-card-header">
+                      <div class="id-org-title">
+                        <span class="pulse-dot"></span>
+                        <span>CREATIVE STUDIO // DESIGNER ID</span>
+                      </div>
+                      <div class="id-chip-graphic">
+                        <div class="chip-contact"></div>
+                      </div>
+                    </div>
+
+                    <div class="id-card-body">
+                      <div class="id-name">MU'ARIF SUKMA JAYA</div>
+                      <div class="id-role">VISUAL &amp; PRODUCT DESIGNER</div>
+                      <div class="id-specs-table">
+                        <div class="id-spec-row"><span>STUDIO ID:</span> <strong>MSJ-2026-STUDIO</strong></div>
+                        <div class="id-spec-row"><span>DISCIPLINE:</span> <strong>VISUAL DESIGN &amp; MOTION</strong></div>
+                        <div class="id-spec-row"><span>STATUS:</span> <strong style="color: var(--accent-emerald);">VERIFIED PRO</strong></div>
+                        <div class="id-spec-row"><span>LOCATION:</span> <strong>BOGOR, WEST JAVA</strong></div>
+                      </div>
+                    </div>
+
+                    <div class="id-card-footer">
+                      <div class="id-barcode-wrap">
+                        <div class="barcode-lines"></div>
+                        <span class="barcode-text">MSJ-STUDIO-2026</span>
+                      </div>
+                      <div class="id-qr-box" title="Scan to open WhatsApp">
+                        <i class="fa-solid fa-qrcode"></i>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <!-- Subtle Specular Glare (White matte highlight, NO rainbow) -->
+                <div class="specular-glare" id="card-glare"></div>
+              </div>
+
+              <!-- Interactive Controls: 3D Flip Action -->
+              <div class="badge-actions-row">
+                <button type="button" class="lanyard-flip-btn" id="lanyard-flip-btn" title="Click to Flip Badge in 3D">
+                  <i class="fa-solid fa-rotate"></i>
+                  <span>FLIP BADGE</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 2: DYNAMIC INFINITE MARQUEE TICKER
+         ==================================================================== -->
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
+        <!-- PANDUAN TEKS BERJALAN (MARQUEE TICKER): Anda bisa menambah atau mengubah kata-kata keahlian Anda di sini -->
+        <div class="marquee-item">
+          <span>COMMERCIAL PHOTOGRAPHY</span> <span class="bullet">&bull;</span>
+          <span>VISUAL DESIGN</span> <span class="bullet">&bull;</span>
+          <span>POSTER &amp; EDITORIAL LAYOUT</span> <span class="bullet">&bull;</span>
+          <span>CINEMATIC VIDEO &amp; MOTION</span> <span class="bullet">&bull;</span>
+          <span>CREATIVE DIRECTION</span> <span class="bullet">&bull;</span>
+        </div>
+        <div class="marquee-item">
+          <span>COMMERCIAL PHOTOGRAPHY</span> <span class="bullet">&bull;</span>
+          <span>VISUAL DESIGN</span> <span class="bullet">&bull;</span>
+          <span>POSTER &amp; EDITORIAL LAYOUT</span> <span class="bullet">&bull;</span>
+          <span>CINEMATIC VIDEO &amp; MOTION</span> <span class="bullet">&bull;</span>
+          <span>CREATIVE DIRECTION</span> <span class="bullet">&bull;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         SECTION 3: ABOUT THE DESIGNER & SKILL PILLARS
+         ==================================================================== -->
+    <section class="section" id="about">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <div class="section-tag">ABOUT THE CREATOR</div>
+          <h2 class="section-title">The Designer.</h2>
+          <p class="section-lead">A visual designer committed to crafting impactful aesthetics rooted in clear communication and storytelling.</p>
+        </div>
+
+        <div class="about-grid">
+          
+          <!-- Left Column: Portrait Card & Quick Metadata -->
+          <div class="about-card reveal">
+            <div class="about-portrait-wrap">
+              <img src="assets/images/profile.jpeg" alt="Mu'Arif Sukma Jaya Portrait" onerror="this.src='assets/images/profile_portrait.png'" />
+            </div>
+
+            <div class="quick-details">
+              <div class="detail-row">
+                <span class="label">Full Name:</span>
+                <span class="value">Mu'Arif Sukma Jaya</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">Age:</span>
+                <span class="value">17 Years Old</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">Origin:</span>
+                <span class="value">Indramayu, West Java</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">Current Base:</span>
+                <span class="value">Bogor, West Java</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">Education:</span>
+                <span class="value">SMK TI ANNISA 2 (12th Grade)</span>
+              </div>
+              <div class="detail-row" style="border-bottom: none;">
+                <span class="label">Major:</span>
+                <span class="value" style="color: var(--accent-cyan);">Visual Communication Design (DKV)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Narrative & 4 Skill Pillars -->
+          <div class="about-narrative reveal">
+            <p class="bio-paragraph">
+              Mu'Arif Sukma Jaya is a 17-year-old final-year (12th Grade) Visual Communication Design (DKV) student at SMK TI ANNISA 2. Originally from Indramayu, currently based in Bogor, West Java.
+            </p>
+            <p class="bio-paragraph">
+              I focus on creating visual solutions that blend commercial needs with engaging storytelling. Treating every project as a professional challenge, I aim to continuously grow, experiment, and explore the creative industry.
+            </p>
+
+            <!-- Vision / Career Goals Card -->
+            <div class="vision-card">
+              <h4><i class="fa-solid fa-compass"></i> Career Vision & Goals</h4>
+              <p>
+                To achieve sustained excellence in commercial photography and visual design. My ultimate dream is to establish an <strong>Integrated Creative Studio and Cafe</strong>&mdash;a vibrant one-stop destination combining professional creative services, high-end multimedia production, and collaborative community spaces.
+              </p>
+            </div>
+
+            <!-- The 4 Skill Pillars Grid -->
+            <div class="pillars-grid">
+              
+              <!-- Pillar 1: Marketing & Visual Design -->
+              <div class="pillar-item">
+                <div class="pillar-header">
+                  <i class="fa-solid fa-layer-group"></i>
+                  <h4>Marketing &amp; Visual Design</h4>
+                </div>
+                <ul class="pillar-list">
+                  <li>Commercial Poster &amp; Key Visuals</li>
+                  <li>Social Media Campaign Creatives</li>
+                  <li>Photo Manipulation &amp; Retouching</li>
+                  <li>Print &amp; Advertising Collateral</li>
+                </ul>
+              </div>
+
+              <!-- Pillar 2: Photography & Visual Media -->
+              <div class="pillar-item">
+                <div class="pillar-header">
+                  <i class="fa-solid fa-camera"></i>
+                  <h4>Photography &amp; Visual Media</h4>
+                </div>
+                <ul class="pillar-list">
+                  <li>Commercial Studio &amp; Product Photography</li>
+                  <li>Still-Life &amp; Advertising Lighting</li>
+                  <li>Photo Retouching &amp; Color Grading</li>
+                  <li>Event Photo &amp; Video Documentation</li>
+                  <li>Cinematic Video Capture &amp; Motion</li>
+                </ul>
+              </div>
+
+              <!-- Pillar 3: Software Toolkit -->
+              <div class="pillar-item">
+                <div class="pillar-header">
+                  <i class="fa-solid fa-cubes"></i>
+                  <h4>Software Toolkit</h4>
+                </div>
+                <ul class="pillar-list">
+                  <li>Adobe Photoshop (Ps)</li>
+                  <li>Adobe Illustrator (Ai)</li>
+                  <li>Alight Motion (Am)</li>
+                  <li>Affinity Suite & Canva</li>
+                </ul>
+              </div>
+
+              <!-- Pillar 4: Soft Skills -->
+              <div class="pillar-item">
+                <div class="pillar-header">
+                  <i class="fa-solid fa-lightbulb"></i>
+                  <h4>Soft Skills</h4>
+                </div>
+                <ul class="pillar-list">
+                  <li>Client Communication</li>
+                  <li>Creative Problem Solving</li>
+                  <li>Critical Thinking</li>
+                  <li>Project Time Management</li>
+                </ul>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 4: EXPERIENCE & EDUCATION TIMELINE
+         ==================================================================== -->
+    <section class="section" id="experience" style="background: var(--bg-surface);">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <div class="section-tag">PROFESSIONAL & ACADEMIC TRACK</div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <h2 class="section-title">Experience & Pathway.</h2>
+              <p class="section-lead">A comprehensive track record of professional internships, school leadership, and educational foundations.</p>
+            </div>
+            <a href="assets/cv_muarif.pdf" download="CV_MuArif_Sukma_Jaya.pdf" class="btn btn-secondary">
+              <i class="fa-solid fa-file-arrow-down" style="color: var(--accent-cyan);"></i>
+              <span>Download Full CV (PDF)</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="experience-container">
+          
+          <!-- Block A: Professional & Leadership Experience -->
+          <div class="experience-block reveal">
+            <div class="block-title">
+              <i class="fa-solid fa-briefcase" style="color: var(--accent-cyan);"></i>
+              <span>// PROFESSIONAL & LEADERSHIP EXPERIENCE</span>
+            </div>
+
+            <div class="timeline">
+              <!-- Item 1: PT LAMBDA -->
+              <div class="timeline-card">
+                <div class="timeline-bullet active">
+                  <i class="fa-solid fa-building"></i>
+                </div>
+                <div class="timeline-content">
+                  <div class="timeline-top">
+                    <span class="timeline-date">2026 &mdash; PRESENT</span>
+                    <span class="timeline-badge" style="color: var(--accent-cyan); border-color: var(--border-active);">INTERNSHIP</span>
+                  </div>
+                  <h3 class="timeline-title">PT LAMBDA SINERGI TELEKOMUNIKASI</h3>
+                  <div class="timeline-role">Graphic Designer & Media Documentarian Intern</div>
+                  <p class="timeline-desc">
+                    Responsible for designing commercial marketing collateral, producing social media marketing posts, and directing high-resolution photo and video event documentation across company initiatives.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Item 2: OSIS -->
+              <div class="timeline-card">
+                <div class="timeline-bullet">
+                  <i class="fa-solid fa-users"></i>
+                </div>
+                <div class="timeline-content">
+                  <div class="timeline-top">
+                    <span class="timeline-date">2024 &mdash; 2026</span>
+                    <span class="timeline-badge">ORGANIZATION</span>
+                  </div>
+                  <h3 class="timeline-title">OSIS SMK TI ANNISA 2</h3>
+                  <div class="timeline-role">Documentation & Media Staff</div>
+                  <p class="timeline-desc">
+                    Led on-site multimedia documentation for school events, curated visual archives, and managed graphic publication materials across official student organization communication channels.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Block B: Academic Education Timeline -->
+          <div class="experience-block reveal">
+            <div class="block-title">
+              <i class="fa-solid fa-graduation-cap" style="color: var(--accent-cyan);"></i>
+              <span>// ACADEMIC TIMELINE</span>
+            </div>
+
+            <div class="timeline">
+              <!-- Education 1: SMK TI Annisa 2 -->
+              <div class="timeline-card">
+                <div class="timeline-bullet active">
+                  <i class="fa-solid fa-school"></i>
+                </div>
+                <div class="timeline-content">
+                  <div class="timeline-top">
+                    <span class="timeline-date">2024 &mdash; PRESENT</span>
+                    <span class="timeline-badge" style="color: var(--accent-emerald);">CURRENT</span>
+                  </div>
+                  <h3 class="timeline-title">SMK TI ANNISA 2</h3>
+                  <div class="timeline-role">Final-year (12th Grade) Student &bull; DKV Major</div>
+                  <p class="timeline-desc">
+                    Specialized study in Visual Communication Design: mastering vector illustration, raster design, advertising layout, typography principles, and commercial photography.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Education 2: SMP PGRI 1 GANTAR -->
+              <div class="timeline-card">
+                <div class="timeline-bullet">
+                  <i class="fa-solid fa-book-open"></i>
+                </div>
+                <div class="timeline-content">
+                  <div class="timeline-top">
+                    <span class="timeline-date">2021 &mdash; 2024</span>
+                    <span class="timeline-badge">GRADUATED</span>
+                  </div>
+                  <h3 class="timeline-title">SMP PGRI 1 GANTAR</h3>
+                  <div class="timeline-role">Junior High School</div>
+                  <p class="timeline-desc">
+                    Completed general secondary education with strong engagement in visual arts and school creative clubs.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Education 3: SDN PUNDUAN -->
+              <div class="timeline-card">
+                <div class="timeline-bullet">
+                  <i class="fa-solid fa-pen-ruler"></i>
+                </div>
+                <div class="timeline-content">
+                  <div class="timeline-top">
+                    <span class="timeline-date">2015 &mdash; 2021</span>
+                    <span class="timeline-badge">GRADUATED</span>
+                  </div>
+                  <h3 class="timeline-title">SDN PUNDUAN</h3>
+                  <div class="timeline-role">Elementary School</div>
+                  <p class="timeline-desc">
+                    Early foundational education and initial creative drawing exploration.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Education 4: TK PUNDUAN -->
+              <div class="timeline-card">
+                <div class="timeline-bullet">
+                  <i class="fa-solid fa-shapes"></i>
+                </div>
+                <div class="timeline-content">
+                  <div class="timeline-top">
+                    <span class="timeline-date">2014 &mdash; 2015</span>
+                    <span class="timeline-badge">GRADUATED</span>
+                  </div>
+                  <h3 class="timeline-title">TK PUNDUAN</h3>
+                  <div class="timeline-role">Kindergarten</div>
+                  <p class="timeline-desc">
+                    Early childhood education and creative expression.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 5: SELECTED WORKS & LIGHTBOX SHOWCASE
+         ==================================================================== -->
+    <section class="section" id="works">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <div class="section-tag">CURATED PORTFOLIO</div>
+          <h2 class="section-title">Selected Works.</h2>
+          <p class="section-lead">A showcase of commercial design, conceptual film posters, studio product photography, and motion graphics.</p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="works-filter-bar reveal">
+          <button class="filter-btn active" data-filter="all">All Projects (4)</button>
+          <button class="filter-btn" data-filter="poster">Poster Design</button>
+          <button class="filter-btn" data-filter="photo">Commercial Photo</button>
+          <button class="filter-btn" data-filter="motion">Motion Video</button>
+        </div>
+
+        <!-- ==================================================================
+             PANDUAN PORTOFOLIO KARYA (SELECTED WORKS):
+             Untuk mengganti foto/video atau menambah projek baru:
+             1. Letakkan file foto (.jpg / .png / .webp) atau video (.mp4) Anda di folder: assets/images/
+             2. Ganti atribut src="..." pada tag <img> atau <video>
+             3. Ganti data-category="..." sesuai kategori: "poster", "photo", atau "motion"
+             4. Ganti Judul pada <h3 class="work-card-title">...</h3>
+             5. Ganti Deskripsi pada <p class="work-card-desc">...</h3>
+             6. Ganti Palet Warna pada data-hex="#..." dan style="--swatch: #..."
+             ================================================================== -->
+        <!-- Projects Grid -->
+        <div class="works-grid">
+          
+          <!-- PROJEK 1: GRAND OPENING STORE (Contoh Foto / Poster) -->
+          <div class="work-card reveal" data-category="poster" data-type="image">
+            <div class="work-media-wrap">
+              <!-- GANTI FOTO PROJEK 1 DI BAWAH INI: -->
+              <img src="assets/images/grand_opening_poster.jpeg" alt="Grand Opening Store Poster Design" loading="lazy" />
+              <div class="media-overlay">
+                <span class="preview-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> View High-Res</span>
+              </div>
+            </div>
+            <div class="work-meta">
+              <div class="work-meta-header">
+                <span class="work-category">Poster Design &bull; Commercial</span>
+                <!-- Palet Warna Projek 1 (Bisa diubah kode HEX-nya) -->
+                <div class="work-palette-bar" title="Brand Palette (Click color to copy HEX)">
+                  <button class="color-swatch-chip" data-hex="#a00a0b" style="--swatch: #a00a0b;" aria-label="Copy HEX #a00a0b"></button>
+                  <button class="color-swatch-chip" data-hex="#b2e08d" style="--swatch: #b2e08d;" aria-label="Copy HEX #b2e08d"></button>
+                  <button class="color-swatch-chip" data-hex="#212121" style="--swatch: #212121;" aria-label="Copy HEX #212121"></button>
+                  <button class="color-swatch-chip" data-hex="#ECEFF1" style="--swatch: #ECEFF1;" aria-label="Copy HEX #ECEFF1"></button>
+                </div>
+              </div>
+              <h3 class="work-card-title">Grand Opening Store</h3>
+              <p class="work-card-desc">
+                High-impact commercial retail launch poster design with celebratory typography, structured hierarchy, and vibrant contrast.
+              </p>
+            </div>
+          </div>
+
+          <!-- PROJEK 2: FILM POSTER CONCEPT (Contoh Foto / Poster) -->
+          <div class="work-card reveal" data-category="poster" data-type="image">
+            <div class="work-media-wrap">
+              <!-- GANTI FOTO PROJEK 2 DI BAWAH INI: -->
+              <img src="assets/images/poster_sosmed.jpg" alt="Social Media Graphic Design for Zenith by Lambda." loading="lazy" />
+              <div class="media-overlay">
+                <span class="preview-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> View High-Res</span>
+              </div>
+            </div>
+            <div class="work-meta">
+              <div class="work-meta-header">
+                <span class="work-category">Cinema Study &bull; Layout</span>
+                <!-- Palet Warna Projek 2 -->
+                <div class="work-palette-bar" title="Brand Palette (Click color to copy HEX)">
+                  <button class="color-swatch-chip" data-hex="#000EED" style="--swatch: #000EED;" aria-label="Copy HEX #000EED"></button>
+                  <button class="color-swatch-chip" data-hex="#EDD900" style="--swatch: #EDD900;" aria-label="Copy HEX #EDD900"></button>
+                  <button class="color-swatch-chip" data-hex="#ED9F00" style="--swatch: #ED9F00;" aria-label="Copy HEX #ED9F00"></button>
+                  <button class="color-swatch-chip" data-hex="#F8FAFC" style="--swatch: #F8FAFC;" aria-label="Copy HEX #F8FAFC"></button>
+                </div>
+              </div>
+              <h3 class="work-card-title">Social Media Graphic Design</h3>
+              <p class="work-card-desc">
+                Visual Designer — Crafted a commemorative national holiday graphic tailored for corporate social media platforms, aligned with brand guidelines.
+              </p>
+            </div>
+          </div>
+
+          <!-- PROJEK 3: BEVERAGE COMMERCIAL PRODUCT (Contoh Foto Studio) -->
+          <div class="work-card reveal" data-category="photo" data-type="image">
+            <div class="work-media-wrap">
+              <!-- GANTI FOTO PROJEK 3 DI BAWAH INI: -->
+              <img src="assets/images/beverage_branding_study.jpeg" alt="Beverage Commercial Product Study" loading="lazy" />
+              <div class="media-overlay">
+                <span class="preview-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> View High-Res</span>
+              </div>
+            </div>
+            <div class="work-meta">
+              <div class="work-meta-header">
+                <span class="work-category">Commercial Photography &bull; Advertising</span>
+                <!-- Palet Warna Projek 3 -->
+                <div class="work-palette-bar" title="Color Palette (Click color to copy HEX)">
+                  <button class="color-swatch-chip" data-hex="#098028" style="--swatch: #098028;" aria-label="Copy HEX #098028"></button>
+                  <button class="color-swatch-chip" data-hex="#f1c217" style="--swatch: #f1c217;" aria-label="Copy HEX #f1c217"></button>
+                  <button class="color-swatch-chip" data-hex="#E0F2FE" style="--swatch: #E0F2FE;" aria-label="Copy HEX #E0F2FE"></button>
+                  <button class="color-swatch-chip" data-hex="#E0F2FE" style="--swatch: #E0F2FE;" aria-label="Copy HEX #E0F2FE"></button>
+                </div>
+              </div>
+              <h3 class="work-card-title">Beverage Commercial Product</h3>
+              <p class="work-card-desc">
+                Studio commercial still-life photography highlighting glassware reflections, ice condensation, and beverage packaging.
+              </p>
+            </div>
+          </div>
+
+          <!-- PROJEK 4: MOTION GRAPHICS LYRIC VIDEO (Contoh Video MP4) -->
+          <div class="work-card wide-card reveal" data-category="motion" data-type="video">
+            <div class="work-media-wrap">
+              <!-- GANTI VIDEO PROJEK 4 DI BAWAH INI (Format MP4): -->
+              <video src="assets/images/mograph_new.mp4" muted loop playsinline autoplay preload="metadata"></video>
+              <div class="media-overlay">
+                <span class="preview-badge"><i class="fa-solid fa-play"></i> Watch Fullscreen Video</span>
+              </div>
+            </div>
+            <div class="work-meta">
+              <div class="work-meta-header">
+                <span class="work-category">Motion Graphics &bull; Kinetic Typography</span>
+                <!-- Palet Warna Projek 4 -->
+                <div class="work-palette-bar" title="Brand Palette (Click color to copy HEX)">
+                  <button class="color-swatch-chip" data-hex="#00E5FF" style="--swatch: #00E5FF;" aria-label="Copy HEX #00E5FF"></button>
+                  <button class="color-swatch-chip" data-hex="#D946EF" style="--swatch: #D946EF;" aria-label="Copy HEX #D946EF"></button>
+                  <button class="color-swatch-chip" data-hex="#8B5CF6" style="--swatch: #8B5CF6;" aria-label="Copy HEX #8B5CF6"></button>
+                  <button class="color-swatch-chip" data-hex="#090D16" style="--swatch: #090D16;" aria-label="Copy HEX #090D16"></button>
+                </div>
+              </div>
+              <h3 class="work-card-title">Motion Graphics Lyric Video</h3>
+              <p class="work-card-desc">
+                Dynamic keyframed kinetic typography production crafted in Alight Motion, integrating beat-synced transitions, chromatic aberration, and visual effects.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Explore More Works on Instagram & Behance Banner -->
+        <div class="works-archive-cta reveal">
+          <div class="archive-cta-left">
+            <div class="archive-cta-badge">
+              <i class="fa-solid fa-layer-group" style="color: var(--accent-cyan);"></i>
+              <span>// LIVE CREATIVE REPOSITORIES &bull; SOCIAL ARCHIVES</span>
+            </div>
+            <h3 class="archive-cta-title">Want to see more completed projects?</h3>
+            <p class="archive-cta-desc">
+              Daily design experiments, client commissions, behind-the-scenes motion breakdowns, and ongoing commercial projects are published regularly on Instagram &amp; Behance.
+            </p>
+          </div>
+          <div class="archive-cta-right" style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+            <!-- PANDUAN LINK INSTAGRAM: Ganti href dengan link Instagram Anda -->
+            <a href="https://www.instagram.com/skmj.jpg/" target="_blank" rel="noopener noreferrer" class="btn btn-primary archive-cta-btn" title="View More Projects on Instagram">
+              <i class="fa-brands fa-instagram" style="font-size: 1.15rem;"></i>
+              <span>Instagram (@skmj.jpg)</span>
+              <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.75rem;"></i>
+            </a>
+            <!-- PANDUAN LINK BEHANCE: Jika sudah membuat akun Behance, ganti url https://www.behance.net dengan link profil Behance Anda (misal: https://www.behance.net/username_anda) -->
+            <a href="https://www.behance.net" target="_blank" rel="noopener noreferrer" class="btn btn-secondary archive-cta-btn" title="Explore Portfolio on Behance">
+              <i class="fa-brands fa-behance" style="font-size: 1.15rem;"></i>
+              <span>Behance</span>
+              <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.75rem;"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 6: CONTACT & INITIATE COLLABORATION
+         ==================================================================== -->
+    <section class="section" id="contact" style="background: var(--bg-surface);">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <div class="section-tag">INITIATE COLLABORATION</div>
+          <h2 class="section-title">Let's Talk.</h2>
+          <p class="section-lead">Have a design project, photography assignment, or creative opportunity in mind? Reach out directly through your preferred channel.</p>
+        </div>
+
+        <div class="contact-grid">
+          
+          <!-- Contact Cards List -->
+          <div class="reveal">
+            <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 0.5rem; font-style: italic;">
+              Direct Contact Channels
+            </h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+              Fastest response via WhatsApp, Instagram Direct, or Discord Community.
+            </p>
+
+            <div class="contact-info-list">
+              
+              <!-- ====================================================================
+                   PANDUAN GANTI NOMOR WHATSAPP KARTU KONTAK:
+                   1. Ganti nomor '6283813751564' pada link https://wa.me/6283813751564 di bawah ini.
+                   2. Ganti teks display nomornya: <p>+62 838-1375-1564</p>
+                   Format link: Diawali kode negara 62 tanpa simbol + atau angka 0 (contoh: 6281234567890)
+                   ==================================================================== -->
+              <!-- WhatsApp Card -->
+              <a href="https://wa.me/6283813751564?text=Hello%20Mu'Arif,%20I'd%20like%20to%20collaborate%20with%20you!" target="_blank" rel="noopener noreferrer" class="contact-card">
+                <div class="contact-card-icon" style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.3); color: #10b981;">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <div class="contact-card-content">
+                  <h4>WhatsApp (Instant Chat)</h4>
+                  <p>+62 838-1375-1564</p>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square" style="margin-left: auto; color: var(--text-dim); font-size: 0.85rem;"></i>
+              </a>
+
+              <!-- PANDUAN LINK INSTAGRAM KONTAK: Akun Instagram pribadi untuk DM / Kontak Langsung (@skmjyaaa) -->
+              <!-- Instagram Card -->
+              <a href="https://instagram.com/skmjyaaa" target="_blank" rel="noopener noreferrer" class="contact-card">
+                <div class="contact-card-icon" style="background: rgba(236, 72, 153, 0.15); border-color: rgba(236, 72, 153, 0.3); color: #ec4899;">
+                  <i class="fa-brands fa-instagram"></i>
+                </div>
+                <div class="contact-card-content">
+                  <h4>Instagram Direct</h4>
+                  <p>@skmjyaaa</p>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square" style="margin-left: auto; color: var(--text-dim); font-size: 0.85rem;"></i>
+              </a>
+
+              <!-- PANDUAN LINK DISCORD: Server Discord Community Mu'Arif (https://discord.gg/6TuWX2K3KC) -->
+              <!-- Discord Community Card -->
+              <a href="https://discord.gg/6TuWX2K3KC" target="_blank" rel="noopener noreferrer" class="contact-card">
+                <div class="contact-card-icon" style="background: rgba(88, 101, 242, 0.15); border-color: rgba(88, 101, 242, 0.3); color: #5865f2;">
+                  <i class="fa-brands fa-discord"></i>
+                </div>
+                <div class="contact-card-content">
+                  <h4>Zen's Community</h4>
+                  <p>Community Hangout &bull; Collaboration &bull; Orders</p>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square" style="margin-left: auto; color: var(--text-dim); font-size: 0.85rem;"></i>
+              </a>
+
+              <!-- PANDUAN EMAIL: Ganti muarifsukmajaya364@gmail.com dengan email Anda jika berubah -->
+              <!-- Email Card -->
+              <a href="mailto:muarifsukmajaya364@gmail.com" class="contact-card">
+                <div class="contact-card-icon">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="contact-card-content">
+                  <h4>Electronic Mail</h4>
+                  <p>muarifsukmajaya364@gmail.com</p>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square" style="margin-left: auto; color: var(--text-dim); font-size: 0.85rem;"></i>
+              </a>
+
+              <!-- Geographic Location -->
+              <div class="contact-card">
+                <div class="contact-card-icon" style="background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.3); color: #f59e0b;">
+                  <i class="fa-solid fa-map-location-dot"></i>
+                </div>
+                <div class="contact-card-content">
+                  <h4>Location</h4>
+                  <p>Bogor, West Java &bull; Indonesia (GMT+7)</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Interactive Quick Message Form -->
+          <div class="contact-form-box reveal">
+            <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 0.4rem; font-style: italic;">
+              Quick Message
+            </h3>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem; font-family: var(--font-mono);">
+              Fill out this form to quickly start a project briefing.
+            </p>
+
+            <form id="contact-form">
+              <div class="form-group">
+                <label class="form-label" for="form-name">Your Name</label>
+                <input type="text" id="form-name" class="form-input" placeholder="e.g. Alex Johnson" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="form-email">Email Address</label>
+                <input type="email" id="form-email" class="form-input" placeholder="alex@company.com" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="form-subject">Project Type / Subject</label>
+                <input type="text" id="form-subject" class="form-input" placeholder="e.g. Commercial Photography, Studio Shoot, Poster..." required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="form-message">Brief Description</label>
+                <textarea id="form-message" class="form-textarea" placeholder="Tell me about your creative needs, timeline, and goals..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>Send via WhatsApp</span>
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================================
+       UNIVERSAL LIGHTBOX MODAL (Supports Images & Video)
+       ====================================================================== -->
+  <div class="lightbox-modal" id="lightbox-modal">
+    <div class="lightbox-container">
+      <div class="lightbox-actions-bar">
+        <button class="lightbox-tool-btn" id="lightbox-zoom-btn" aria-label="Toggle Zoom Inspection" title="Toggle 2x Retina Zoom">
+          <i class="fa-solid fa-magnifying-glass-plus"></i>
+        </button>
+        <button class="lightbox-close-btn" id="lightbox-close-btn" aria-label="Close Preview" title="Close Preview">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="lightbox-media-container"></div>
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       INTERACTIVE DESIGNER TOOL INSPECTOR MODAL
+       ====================================================================== -->
+  <div class="tool-inspector-modal" id="tool-inspector-modal">
+    <div class="tool-inspector-dialog">
+      <button class="tool-modal-close" id="tool-modal-close" aria-label="Close Inspector">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      
+      <div class="tool-inspector-header">
+        <div class="tool-header-badge" id="tool-header-badge">Ps</div>
+        <div>
+          <h3 class="tool-inspector-title" id="tool-inspector-title">Adobe Photoshop</h3>
+          <span class="tool-inspector-sub" id="tool-inspector-sub">Raster Graphics &amp; Color Retouching</span>
+        </div>
+      </div>
+
+      <div class="tool-inspector-body" id="tool-inspector-body">
+        <!-- Dynamic interactive telemetry generated by JS -->
+      </div>
+
+      <div class="tool-inspector-footer">
+        <div class="tool-footer-status">
+          <span class="pulse-dot"></span>
+          <span>100% PROFICIENCY &bull; COMMERCIAL READY</span>
+        </div>
+        <button class="btn btn-primary" id="tool-filter-portfolio-btn">
+          <span>View Relevant Works</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       FOOTER & BACK TO TOP
+       ====================================================================== -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <span class="pulse-dot" style="background: var(--accent-cyan);"></span>
+        <span>&copy; 2026 Mu'Arif Sukma Jaya &bull; Built with Passion &amp; Precision</span>
+      </div>
+      
+      <!-- Footer Social & Community Links -->
+      <div class="footer-social-links" style="display: flex; align-items: center; gap: 1.25rem;">
+        <a href="https://discord.gg/6TuWX2K3KC" target="_blank" rel="noopener noreferrer" title="Zen's Community (Discord Server)" style="color: var(--text-muted); font-size: 1.15rem; transition: color 0.2s;" onmouseover="this.style.color='#5865f2'" onmouseout="this.style.color='var(--text-muted)'">
+          <i class="fa-brands fa-discord"></i>
+        </a>
+        <a href="https://www.instagram.com/skmj.jpg/" target="_blank" rel="noopener noreferrer" title="Instagram Showcase (@skmj.jpg)" style="color: var(--text-muted); font-size: 1.15rem; transition: color 0.2s;" onmouseover="this.style.color='#ec4899'" onmouseout="this.style.color='var(--text-muted)'">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/6283813751564" target="_blank" rel="noopener noreferrer" title="WhatsApp Chat" style="color: var(--text-muted); font-size: 1.15rem; transition: color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='var(--text-muted)'">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+      </div>
+
+      <div>
+        <span>VISUAL DESIGNER &bull; ALL RIGHTS RESERVED</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button id="back-to-top" aria-label="Scroll Back to Top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
