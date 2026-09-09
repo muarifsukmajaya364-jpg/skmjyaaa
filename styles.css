@@ -3304,8 +3304,7 @@ canvas {
 .hero-grid,
 .about-grid,
 .experience-container,
-.contact-grid,
-.works-grid {
+.contact-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
@@ -3324,9 +3323,7 @@ canvas {
   overflow-wrap: anywhere;
 }
 
-.toolkit-deck-grid,
-.pillars-grid,
-.telemetry-grid {
+.toolkit-deck-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
