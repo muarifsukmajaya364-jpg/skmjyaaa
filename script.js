@@ -385,7 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const topAnchorLeft = originX - 16;
       const topAnchorRight = originX + 16;
-      const topY = window.innerWidth < 992 ? 0 : -10;
+      const topY = window.innerWidth < 992 ? -180 : -10;
 
       const lateralPull = x * 0.4;
       const sag = Math.max(12, 34 * (1 - Math.min(y, 200) / 450));
@@ -618,6 +618,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Format internasional TANPA tanda + dan TANPA angka 0 di depan (contoh: '6281234567890')
   // ========================================================================
   const CREATOR_WHATSAPP_NUMBER = '6283813751564';
+  const WHATSAPP_AVAILABLE = false;
+
+  document.querySelectorAll('.whatsapp-unavailable').forEach((link) => {
+    link.addEventListener('click', (e) => e.preventDefault());
+  });
 
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
@@ -630,6 +635,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const fullMessage = `Hello Mu'Arif!%0A%0AMy Name: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0ASubject: ${encodeURIComponent(subject)}%0A%0AMessage:%0A${encodeURIComponent(message)}`;
       const waUrl = `https://wa.me/${CREATOR_WHATSAPP_NUMBER}?text=${fullMessage}`;
+
+      if (!WHATSAPP_AVAILABLE) {
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        if (submitBtn) {
+          submitBtn.innerHTML = '<i class="fa-solid fa-clock"></i> WhatsApp Currently Unavailable';
+          submitBtn.disabled = true;
+          setTimeout(() => {
+            submitBtn.innerHTML = '<i class="fa-brands fa-whatsapp"></i> WhatsApp Currently Unavailable';
+            submitBtn.disabled = false;
+          }, 2500);
+        }
+        return;
+      }
 
       // Show temporary submit confirmation
       const submitBtn = contactForm.querySelector('button[type="submit"]');
