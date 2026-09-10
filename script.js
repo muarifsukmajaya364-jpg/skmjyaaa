@@ -380,27 +380,38 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateStrapSvg(x, y) {
       const containerWidth = 400;
       const originX = containerWidth / 2; // 200px
-      const clipEntryY = topOffset + (window.innerWidth < 992 ? 75 : 130) + y;
+      const isMobile = window.innerWidth < 992;
+      const strapDropLength = 130;
+      const clipEntryY = topOffset + strapDropLength + y;
       const clipX = originX + x;
 
       const topAnchorLeft = originX - 16;
       const topAnchorRight = originX + 16;
-      const topY = window.innerWidth < 992 ? 0 : -10;
+      const topY = isMobile ? 0 : -10;
 
       const lateralPull = x * 0.4;
-      const sag = Math.max(12, 34 * (1 - Math.min(y, 200) / 450));
+      const sag = Math.max(8, 20 * (1 - Math.min(Math.max(0, y), 200) / 450));
+
+      let c1LY, c2LY, c1RY, c2RY;
+      if (clipEntryY > topY + 20) {
+        c1LY = topY + ((clipEntryY - topY) * 0.35) + sag;
+        c2LY = Math.max(c1LY + 15, clipEntryY - 32);
+        c1RY = topY + ((clipEntryY - topY) * 0.35) + sag;
+        c2RY = Math.max(c1RY + 15, clipEntryY - 32);
+      } else {
+        c1LY = topY + (clipEntryY - topY) * 0.33;
+        c2LY = topY + (clipEntryY - topY) * 0.66;
+        c1RY = c1LY;
+        c2RY = c2LY;
+      }
 
       // Control points for left strand
       const c1LX = topAnchorLeft + lateralPull;
-      const c1LY = (clipEntryY * 0.4) + sag;
       const c2LX = clipX - 6 + (x * 0.2);
-      const c2LY = clipEntryY - 30;
 
       // Control points for right strand
       const c1RX = topAnchorRight + lateralPull;
-      const c1RY = (clipEntryY * 0.4) + sag;
       const c2RX = clipX + 6 + (x * 0.2);
-      const c2RY = clipEntryY - 30;
 
       const pathL = `M ${topAnchorLeft} ${topY} C ${c1LX} ${c1LY}, ${c2LX} ${c2LY}, ${clipX - 5} ${clipEntryY}`;
       const pathR = `M ${topAnchorRight} ${topY} C ${c1RX} ${c1RY}, ${c2RX} ${c2RY}, ${clipX + 5} ${clipEntryY}`;

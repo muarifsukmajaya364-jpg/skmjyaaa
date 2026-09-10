@@ -150,7 +150,7 @@
               <span>Indramayu &rarr; Bogor, West Java</span>
             </div>
 
-            <div class="status-chip" style="display: none; @media(min-width: 600px){display:inline-flex;}">
+            <div class="status-chip desktop-only-chip">
               <i class="fa-solid fa-terminal" style="color: var(--accent-cyan); font-size: 0.7rem;"></i>
               <span>SYS_AUTH // VERIFIED</span>
             </div>
@@ -337,21 +337,24 @@
             <svg class="lanyard-svg" id="lanyard-svg" viewBox="0 0 400 680">
               <defs>
                 <!-- Woven Texture Pattern -->
-                <pattern id="wovenPattern" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-                  <rect width="8" height="8" fill="#111317" />
-                  <line x1="0" y1="0" x2="0" y2="8" stroke="#1c1f26" stroke-width="1.5" />
-                  <line x1="4" y1="0" x2="4" y2="8" stroke="#0a0c0f" stroke-width="1.5" />
+                <pattern id="wovenPattern" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                  <!-- High-contrast tactical ballistic nylon base -->
+                  <rect width="10" height="10" fill="#1b212d" />
+                  <line x1="0" y1="0" x2="0" y2="10" stroke="#2e384d" stroke-width="2" />
+                  <line x1="5" y1="0" x2="5" y2="10" stroke="#10141e" stroke-width="2" />
+                  <!-- Vibrant micro cyan thread highlight -->
+                  <line x1="2.5" y1="0" x2="2.5" y2="10" stroke="rgba(6, 182, 212, 0.35)" stroke-width="1" stroke-dasharray="2,2" />
                 </pattern>
 
-                <!-- Soft Subtle Drop Shadow Filter -->
+                <!-- Soft Drop Shadow Filter -->
                 <filter id="strapShadowFilter" x="-20%" y="-20%" width="140%" height="140%">
-                  <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.15" />
+                  <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.45" />
                 </filter>
               </defs>
 
               <!-- Dynamic Soft Shadows -->
-              <path id="strap-left-shadow" fill="none" stroke="#000000" stroke-width="14" stroke-opacity="0.1" filter="url(#strapShadowFilter)" stroke-linecap="round" />
-              <path id="strap-right-shadow" fill="none" stroke="#000000" stroke-width="14" stroke-opacity="0.1" filter="url(#strapShadowFilter)" stroke-linecap="round" />
+              <path id="strap-left-shadow" fill="none" stroke="#000000" stroke-width="18" stroke-opacity="0.3" filter="url(#strapShadowFilter)" stroke-linecap="round" />
+              <path id="strap-right-shadow" fill="none" stroke="#000000" stroke-width="18" stroke-opacity="0.3" filter="url(#strapShadowFilter)" stroke-linecap="round" />
 
               <!-- Left & Right Woven Fabric Ribbons -->
               <path id="strap-left" fill="none" stroke="url(#wovenPattern)" stroke-width="18" stroke-linecap="square" />
@@ -359,8 +362,8 @@
 
               <!-- Strap Center Path for Typography -->
               <path id="strap-text-path" fill="none" />
-              <text font-family="'JetBrains Mono', monospace" font-size="7px" letter-spacing="0.22em" fill="rgba(148, 163, 184, 0.75)" text-transform="uppercase">
-                <textPath href="#strap-text-path" startOffset="18%">
+              <text font-family="'JetBrains Mono', monospace" font-size="7.5px" font-weight="700" letter-spacing="0.22em" fill="rgba(226, 232, 240, 0.9)" text-transform="uppercase">
+                <textPath href="#strap-text-path" startOffset="16%">
                   // MU'ARIF SUKMA JAYA &bull; VISUAL DESIGNER
                 </textPath>
               </text>
