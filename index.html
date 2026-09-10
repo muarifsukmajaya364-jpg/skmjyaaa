@@ -10,19 +10,19 @@
   <meta name="keywords" content="Mu'Arif Sukma Jaya, Commercial Photographer, Photography, Visual Designer, Graphic Designer, Cinematic Video, Motion Graphics, Alight Motion, Photoshop, Illustrator, Portfolio, Bogor, Indonesia" />
   <meta name="author" content="Mu'Arif Sukma Jaya" />
   <meta name="robots" content="index, follow" />
-  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
   <!-- Open Graph / WhatsApp / Facebook Link Preview -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Mu'Arif Sukma Jaya — Commercial Photographer &amp; Visual Designer Portfolio" />
   <meta property="og:description" content="Blending visual aesthetics with marketing purpose, one pixel at a time. Commercial Photography, Poster Design &amp; Motion Graphics." />
-  <meta property="og:image" content="./assets/profile-Bn6VKpK_.jpeg" />
+  <meta property="og:image" content="assets/images/profile.jpeg" />
 
   <!-- Twitter / X Card Preview -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Mu'Arif Sukma Jaya — Visual Designer Portfolio" />
   <meta name="twitter:description" content="Commercial Poster Design, Studio Photography & Motion Graphics." />
-  <meta name="twitter:image" content="./assets/profile-Bn6VKpK_.jpeg" />
+  <meta name="twitter:image" content="assets/images/profile.jpeg" />
   
   <!-- Google Fonts: Playfair Display, Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,8 +33,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   
   <!-- Main Stylesheet -->
-  <script type="module" crossorigin src="./assets/index-DgVWmlIt.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-BXno8RBH.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
@@ -329,9 +328,150 @@
         </div>
 
         <!-- Right Column: The Interactive Lanyard ID Card Entity -->
-        <!-- Right Column: The Interactive 3D Lanyard ID Card Entity (Three.js & Rapier Physics) -->
         <div class="hero-lanyard-wrapper reveal active">
-          <div id="lanyard-root" class="lanyard-root-container" style="position: relative; width: 100%; max-width: 440px; height: 680px; display: flex; justify-content: center; align-items: center;"></div>
+          <div class="lanyard-container" id="lanyard-container">
+            <!-- Dynamic Vector Bezier Lanyard Ribbon -->
+            <svg class="lanyard-svg" id="lanyard-svg" viewBox="0 0 400 680">
+              <defs>
+                <!-- Woven Texture Pattern -->
+                <pattern id="wovenPattern" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                  <!-- High-contrast tactical ballistic nylon base -->
+                  <rect width="10" height="10" fill="#1b212d" />
+                  <line x1="0" y1="0" x2="0" y2="10" stroke="#2e384d" stroke-width="2" />
+                  <line x1="5" y1="0" x2="5" y2="10" stroke="#10141e" stroke-width="2" />
+                  <!-- Vibrant micro cyan thread highlight -->
+                  <line x1="2.5" y1="0" x2="2.5" y2="10" stroke="rgba(6, 182, 212, 0.35)" stroke-width="1" stroke-dasharray="2,2" />
+                </pattern>
+
+                <!-- Soft Drop Shadow Filter -->
+                <filter id="strapShadowFilter" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.45" />
+                </filter>
+              </defs>
+
+              <!-- Dynamic Soft Shadows -->
+              <path id="strap-left-shadow" fill="none" stroke="#000000" stroke-width="18" stroke-opacity="0.3" filter="url(#strapShadowFilter)" stroke-linecap="round" />
+              <path id="strap-right-shadow" fill="none" stroke="#000000" stroke-width="18" stroke-opacity="0.3" filter="url(#strapShadowFilter)" stroke-linecap="round" />
+
+              <!-- Left & Right Woven Fabric Ribbons -->
+              <path id="strap-left" fill="none" stroke="url(#wovenPattern)" stroke-width="18" stroke-linecap="square" />
+              <path id="strap-right" fill="none" stroke="url(#wovenPattern)" stroke-width="18" stroke-linecap="square" />
+
+              <!-- Strap Center Path for Typography -->
+              <path id="strap-text-path" fill="none" />
+              <text font-family="'JetBrains Mono', monospace" font-size="7.5px" font-weight="700" letter-spacing="0.22em" fill="rgba(226, 232, 240, 0.9)" text-transform="uppercase">
+                <textPath href="#strap-text-path" startOffset="16%">
+                  // MU'ARIF SUKMA JAYA &bull; VISUAL DESIGNER
+                </textPath>
+              </text>
+            </svg>
+
+            <!-- Physical Drop Shadow that responds to tilt -->
+            <div class="lanyard-shadow-element" id="lanyard-shadow"></div>
+
+            <!-- The Draggable 3D Badge Entity (Locked top-center pivot) -->
+            <div class="lanyard-badge-entity" id="lanyard-card">
+              
+              <!-- 1. Gunmetal Clasp Assembly (Locked directly to badge slot) -->
+              <div class="clasp-assembly">
+                <svg class="clasp-svg" width="44" height="52" viewBox="0 0 44 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="gunmetalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#4e5666" />
+                      <stop offset="40%" stop-color="#2a2e37" />
+                      <stop offset="80%" stop-color="#181a20" />
+                      <stop offset="100%" stop-color="#3b424f" />
+                    </linearGradient>
+                  </defs>
+                  
+                  <!-- Crimp Clamp -->
+                  <rect x="7" y="0" width="30" height="13" rx="2.5" fill="url(#gunmetalGrad)" stroke="#16181f" stroke-width="0.8" />
+                  <line x1="10" y1="6.5" x2="34" y2="6.5" stroke="#121418" stroke-width="1.2" />
+                  <circle cx="12" cy="6.5" r="1.2" fill="#64748b" />
+                  <circle cx="32" cy="6.5" r="1.2" fill="#64748b" />
+
+                  <!-- Swivel Ring -->
+                  <ellipse cx="22" cy="18" rx="6" ry="5" fill="none" stroke="url(#gunmetalGrad)" stroke-width="2.8" />
+
+                  <!-- Carabiner Hook Body -->
+                  <path d="M 17 22 C 17 22, 16 26, 16 32 C 16 37, 18 43, 22 45 C 26 43, 28 37, 28 32 C 28 26, 27 22, 27 22 Z" fill="url(#gunmetalGrad)" stroke="#1a1c22" stroke-width="1" />
+                  <line x1="25" y1="26" x2="25" y2="37" stroke="#71717a" stroke-width="1.8" stroke-linecap="round" />
+                  <rect x="24" y="29" width="3" height="4" rx="1" fill="#9ca3af" />
+                  
+                  <!-- Hook tip entering the slot -->
+                  <path d="M 20 44 C 20 47, 21 49, 22 49 C 23 49, 24 47, 24 44" fill="none" stroke="#64748b" stroke-width="3" stroke-linecap="round" />
+                </svg>
+              </div>
+
+              <!-- 2. Reinforced Vinyl Tab with Triple Punch Holes -->
+              <div class="vinyl-tab">
+                <div class="punch-hole-circle"></div>
+                <div class="punch-hole-slot">
+                  <div class="hook-through-slot"></div>
+                </div>
+                <div class="punch-hole-circle"></div>
+              </div>
+
+              <!-- 3. Matte Frosted Card Sleeve with 3D Double-Sided Flipping -->
+              <div class="matte-sleeve">
+                <div class="matte-sleeve-inner" id="badge-inner">
+                  
+                  <!-- PANDUAN FOTO LANYARD (DEPAN): Ganti src="assets/images/profile.jpeg" dengan foto profil Anda -->
+                  <!-- FRONT FACE: Full-Bleed Portrait Photo -->
+                  <div class="card-face card-face-front">
+                    <img src="assets/images/profile.jpeg" alt="Mu'Arif Sukma Jaya" class="portrait-photo" onerror="this.src='assets/images/profile_2.jpg'" />
+                  </div>
+
+                  <!-- PANDUAN KARTU LANYARD (BELAKANG): Informasi identitas kartu lanyard desainer -->
+                  <!-- BACK FACE: Official Studio Designer ID Pass -->
+                  <div class="card-face card-face-back">
+                    <div class="id-card-header">
+                      <div class="id-org-title">
+                        <span class="pulse-dot"></span>
+                        <span>CREATIVE STUDIO // DESIGNER ID</span>
+                      </div>
+                      <div class="id-chip-graphic">
+                        <div class="chip-contact"></div>
+                      </div>
+                    </div>
+
+                    <div class="id-card-body">
+                      <div class="id-name">MU'ARIF SUKMA JAYA</div>
+                      <div class="id-role">VISUAL &amp; PRODUCT DESIGNER</div>
+                      <div class="id-specs-table">
+                        <div class="id-spec-row"><span>STUDIO ID:</span> <strong>MSJ-2026-STUDIO</strong></div>
+                        <div class="id-spec-row"><span>DISCIPLINE:</span> <strong>VISUAL DESIGN &amp; MOTION</strong></div>
+                        <div class="id-spec-row"><span>STATUS:</span> <strong style="color: var(--accent-emerald);">VERIFIED PRO</strong></div>
+                        <div class="id-spec-row"><span>LOCATION:</span> <strong>BOGOR, WEST JAVA</strong></div>
+                      </div>
+                    </div>
+
+                    <div class="id-card-footer">
+                      <div class="id-barcode-wrap">
+                        <div class="barcode-lines"></div>
+                        <span class="barcode-text">MSJ-STUDIO-2026</span>
+                      </div>
+                      <div class="id-qr-box" title="Scan to open WhatsApp">
+                        <i class="fa-solid fa-qrcode"></i>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <!-- Subtle Specular Glare (White matte highlight, NO rainbow) -->
+                <div class="specular-glare" id="card-glare"></div>
+              </div>
+
+              <!-- Interactive Controls: 3D Flip Action -->
+              <div class="badge-actions-row">
+                <button type="button" class="lanyard-flip-btn" id="lanyard-flip-btn" title="Click to Flip Badge in 3D">
+                  <i class="fa-solid fa-rotate"></i>
+                  <span>FLIP BADGE</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
         </div>
 
       </div>
@@ -377,7 +517,7 @@
           <!-- Left Column: Portrait Card & Quick Metadata -->
           <div class="about-card reveal">
             <div class="about-portrait-wrap">
-              <img src="./assets/profile-Bn6VKpK_.jpeg" alt="Mu'Arif Sukma Jaya Portrait" onerror="this.src='assets/images/profile_portrait.png'" />
+              <img src="assets/images/profile.jpeg" alt="Mu'Arif Sukma Jaya Portrait" onerror="this.src='assets/images/profile_portrait.png'" />
             </div>
 
             <div class="quick-details">
@@ -686,7 +826,7 @@
           <div class="work-card reveal" data-category="poster" data-type="image">
             <div class="work-media-wrap">
               <!-- GANTI FOTO PROJEK 1 DI BAWAH INI: -->
-              <img src="./assets/grand_opening_poster-CuV97KBV.jpeg" alt="Grand Opening Store Poster Design" loading="lazy" />
+              <img src="assets/images/grand_opening_poster.jpeg" alt="Grand Opening Store Poster Design" loading="lazy" />
               <div class="media-overlay">
                 <span class="preview-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> View High-Res</span>
               </div>
@@ -713,7 +853,7 @@
           <div class="work-card reveal" data-category="poster" data-type="image">
             <div class="work-media-wrap">
               <!-- GANTI FOTO PROJEK 2 DI BAWAH INI: -->
-              <img src="./assets/poster_sosmed-BhCj4mWf.jpg" alt="Social Media Graphic Design for Zenith by Lambda." loading="lazy" />
+              <img src="assets/images/poster_sosmed.jpg" alt="Social Media Graphic Design for Zenith by Lambda." loading="lazy" />
               <div class="media-overlay">
                 <span class="preview-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> View High-Res</span>
               </div>
@@ -740,7 +880,7 @@
           <div class="work-card reveal" data-category="photo" data-type="image">
             <div class="work-media-wrap">
               <!-- GANTI FOTO PROJEK 3 DI BAWAH INI: -->
-              <img src="./assets/beverage_branding_study-C6txDb5v.jpeg" alt="Beverage Commercial Product Study" loading="lazy" />
+              <img src="assets/images/beverage_branding_study.jpeg" alt="Beverage Commercial Product Study" loading="lazy" />
               <div class="media-overlay">
                 <span class="preview-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> View High-Res</span>
               </div>
@@ -1049,8 +1189,6 @@
   </button>
 
   <!-- Main JavaScript File -->
-  <!-- React Three Fiber & Rapier 3D Physics Lanyard Module -->
-  <!-- Main JavaScript File -->
-  <script src="./script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
