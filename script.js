@@ -381,13 +381,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const containerWidth = 400;
       const originX = containerWidth / 2; // 200px
       const isMobile = window.innerWidth < 992;
-      const strapDropLength = 130;
+      const strapDropLength = isMobile ? 145 : 130;
       const clipEntryY = topOffset + strapDropLength + y;
       const clipX = originX + x;
 
       const topAnchorLeft = originX - 16;
       const topAnchorRight = originX + 16;
-      const topY = isMobile ? 0 : -10;
+      const topY = isMobile ? 5 : -10;
 
       const lateralPull = x * 0.4;
       const sag = Math.max(8, 20 * (1 - Math.min(Math.max(0, y), 200) / 450));
