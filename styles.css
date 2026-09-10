@@ -594,15 +594,41 @@ body.palette-emerald {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  min-height: 160px;
 }
 
 .hero-title {
-  font-size: 3.85rem;
-  line-height: 1.08;
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3.4vw, 3.25rem);
+  line-height: 1.12;
   margin: 0;
   text-transform: uppercase;
   letter-spacing: -0.02em;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.25em;
+}
+
+/* Lanyard Physical Ceiling / Wall Mount Bracket (Active on Mobile / Tablets) */
+.lanyard-mount-bracket {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 46px;
+  height: 9px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #4b5260 0%, #1e222a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  z-index: 18;
+  pointer-events: none;
+}
+
+@media (min-width: 992px) {
+  .lanyard-mount-bracket {
+    display: none;
+  }
 }
 
 .typewriter-cursor-box {
@@ -1565,23 +1591,25 @@ body.light-theme .matte-sleeve {
   }
 
   .lanyard-container {
-    height: 540px;
-    padding-top: 80px;
-    transform: scale(0.88);
+    height: 520px;
+    padding-top: 60px;
+    transform: scale(0.85);
     transform-origin: top center;
+    margin: 0 auto;
   }
 }
 
 @media (max-width: 520px) {
   .hero-title {
-    font-size: 2.35rem;
+    font-size: clamp(1.2rem, 5vw, 1.85rem);
   }
 
   .lanyard-container {
     height: 480px;
-    padding-top: 70px;
-    transform: scale(0.78);
+    padding-top: 60px;
+    transform: scale(0.76);
     transform-origin: top center;
+    margin: 0 auto;
   }
 }
 
@@ -1888,7 +1916,6 @@ body.light-theme .matte-sleeve {
   position: relative;
   display: flex;
   gap: 1.4rem;
-  min-width: 0;
 }
 
 .timeline-bullet {
@@ -1914,12 +1941,10 @@ body.light-theme .matte-sleeve {
 
 .timeline-content {
   flex: 1;
-  min-width: 0;
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: 16px;
   padding: 1.4rem;
-  overflow-wrap: anywhere;
   transition: all var(--transition-normal);
 }
 
@@ -2254,7 +2279,6 @@ body.light-theme .matte-sleeve {
   display: flex;
   align-items: center;
   gap: 1.25rem;
-  min-width: 0;
   padding: 1.25rem;
   border-radius: 16px;
   background: var(--bg-surface);
@@ -2288,14 +2312,12 @@ body.light-theme .matte-sleeve {
   font-weight: 600;
   font-style: normal;
   margin-bottom: 0.2rem;
-  overflow-wrap: anywhere;
 }
 
 .contact-card-content p {
   font-family: var(--font-mono);
   font-size: 0.85rem;
   color: var(--text-muted);
-  overflow-wrap: anywhere;
 }
 
 /* Contact Form */
@@ -2805,9 +2827,12 @@ section[id] {
   }
 
   .hero-title {
-    font-size: 2.85rem;
-    line-height: 1.1;
+    font-size: clamp(1.6rem, 5.5vw, 2.75rem);
+    line-height: 1.15;
     text-align: center;
+    justify-content: center;
+    white-space: nowrap;
+    min-height: 1.25em;
   }
 
   .hero-subtitle {
@@ -2844,11 +2869,13 @@ section[id] {
   }
 
   .hero-lanyard-wrapper {
-    margin-top: 0.5rem;
+    margin-top: 1.5rem;
     min-height: auto;
     justify-content: center;
     align-items: center;
     width: 100%;
+    position: relative;
+    z-index: 10;
   }
 
   .lanyard-container {
@@ -2893,15 +2920,19 @@ section[id] {
   }
 
   .hero-title-wrapper {
-    min-height: 140px;
+    gap: 0.35rem;
   }
 
   .hero-title {
-    font-size: 2.15rem;
+    font-size: clamp(1.15rem, 5.2vw, 2rem);
+    min-height: 1.25em;
+    white-space: nowrap;
+    justify-content: center;
+    text-align: center;
   }
 
   .hero-subtitle {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
   }
 
   .typewriter-pen-icon {
@@ -2930,9 +2961,17 @@ section[id] {
 
   .lanyard-container {
     height: 480px;
-    padding-top: 45px;
+    padding-top: 60px;
     transform: scale(0.76);
     transform-origin: top center;
+    margin: 0 auto;
+  }
+
+  .portfolio-filter-bar {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
   }
 
   .works-grid {
@@ -3226,316 +3265,5 @@ img, video {
   color: var(--text-main);
   background: rgba(255, 255, 255, 0.1);
   border-color: var(--border-active);
-}
-
-/* ==========================================================================\n+   19. Fluid Layout System\n+   ========================================================================== */
-:root {
-  --page-gutter: clamp(1rem, 4vw, 3rem);
-  --section-space: clamp(3.5rem, 8vw, 6.5rem);
-}
-
-html {
-  overflow-x: clip;
-}
-
-body {
-  width: 100%;
-  min-width: 0;
-  overflow-x: clip;
-}
-
-img,
-svg,
-video,
-canvas {
-  max-width: 100%;
-}
-
-.container {
-  width: min(100% - (var(--page-gutter) * 2), 77.5rem);
-  max-width: none;
-  min-width: 0;
-}
-
-.section {
-  padding-block: var(--section-space);
-}
-
-.nav-container {
-  gap: clamp(0.75rem, 3vw, 2rem);
-}
-
-.nav-brand,
-.nav-actions,
-.hero-content,
-.hero-grid > *,
-.about-grid > *,
-.experience-container > *,
-.contact-grid > * {
-  min-width: 0;
-}
-
-.nav-brand {
-  flex: 1 1 auto;
-}
-
-.brand-info {
-  min-width: 0;
-}
-
-.brand-info h2,
-.brand-info span,
-.nav-links a,
-.status-chip,
-.specialty-pill,
-.archive-label,
-.block-title,
-.section-tag,
-.proficiency-deck-label,
-.proficiency-telemetry-badge {
-  overflow-wrap: anywhere;
-}
-
-.brand-info h2,
-.brand-info span {
-  max-width: 100%;
-}
-
-.hero-grid,
-.about-grid,
-.experience-container,
-.contact-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.hero-grid {
-  gap: clamp(2rem, 5vw, 3.5rem);
-}
-
-.hero-title {
-  font-size: clamp(2.15rem, 5vw, 3.85rem);
-  overflow-wrap: anywhere;
-}
-
-.hero-subtitle,
-.section-title,
-.archive-cta-title {
-  overflow-wrap: anywhere;
-}
-
-.toolkit-deck-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.software-card,
-.software-card-top,
-.proficiency-meta,
-.proficiency-name-wrap,
-.software-info {
-  min-width: 0;
-}
-
-.software-card-top,
-.proficiency-meta {
-  flex-wrap: wrap;
-}
-
-.software-name,
-.software-spec,
-.prof-sub {
-  white-space: normal;
-  overflow-wrap: anywhere;
-}
-
-.hero-cta-group .btn,
-.archive-cta-btn {
-  max-width: 100%;
-  white-space: normal;
-  text-align: center;
-}
-
-.hero-lanyard-wrapper {
-  min-width: 0;
-  min-height: clamp(30rem, 56vw, 37.5rem);
-}
-
-.lanyard-container {
-  width: min(100%, 25rem);
-  height: clamp(30rem, 58vw, 40rem);
-  padding-top: clamp(4rem, 10vw, 8.125rem);
-}
-
-.lanyard-badge-entity,
-.matte-sleeve {
-  width: min(100%, 19.125rem);
-}
-
-.matte-sleeve-inner {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 290 / 420;
-}
-
-.matte-sleeve-inner,
-.card-face {
-  min-width: 0;
-}
-
-.works-archive-cta {
-  padding: clamp(1.4rem, 4vw, 2.2rem) clamp(1.15rem, 4vw, 2.5rem);
-}
-
-.archive-cta-left {
-  min-width: 0;
-}
-
-@media (max-width: 62rem) {
-  .hero-section {
-    min-height: auto;
-    padding-block: clamp(2.5rem, 7vw, 4rem) clamp(3.5rem, 8vw, 5rem);
-  }
-
-  .hero-grid,
-  .about-grid,
-  .experience-container,
-  .contact-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .hero-content {
-    max-width: 40rem;
-    margin-inline: auto;
-  }
-
-  .hero-content,
-  .hero-title,
-  .hero-subtitle,
-  .archive-label,
-  .hero-quote {
-    text-align: center;
-  }
-
-  .badge-row,
-  .specialties-list,
-  .hero-cta-group {
-    justify-content: center;
-  }
-
-  .hero-quote {
-    border-left: 0;
-    border-block: 1px solid var(--border-subtle);
-    padding: 0.85rem 0;
-  }
-
-  .hero-lanyard-wrapper {
-    min-height: auto;
-  }
-
-  .lanyard-container {
-    transform: scale(clamp(0.78, 22vw, 0.92));
-    transform-origin: top center;
-    margin-bottom: calc((1 - clamp(0.78, 22vw, 0.92)) * -22rem);
-  }
-}
-
-@media (max-width: 40rem) {
-  .container {
-    width: min(100% - 2rem, 77.5rem);
-  }
-
-  .nav-container {
-    padding-block: 0.8rem;
-  }
-
-  .brand-info span {
-    display: none;
-  }
-
-  .nav-actions {
-    gap: 0.4rem;
-  }
-
-  .custom-cursor,
-  .custom-cursor-follower {
-    display: none !important;
-  }
-
-  .palette-tuner-popover {
-    left: 50%;
-    right: auto;
-    width: min(16.25rem, calc(100vw - 2rem));
-    transform: translate(-50%, -0.5rem) scale(0.96);
-  }
-
-  .palette-tuner-popover.open {
-    transform: translate(-50%, 0) scale(1);
-  }
-
-  .toolkit-deck-grid,
-  .pillars-grid,
-  .telemetry-grid,
-  .works-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .hero-title-wrapper {
-    min-height: 0;
-  }
-
-  .hero-subtitle {
-    font-size: clamp(1.2rem, 5vw, 1.65rem);
-  }
-
-  .hero-cta-group {
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-  }
-
-  .hero-cta-group .btn {
-    width: 100%;
-  }
-
-  .lanyard-container {
-    width: 100%;
-    height: 30rem;
-    padding-top: 3rem;
-    transform: scale(clamp(0.68, 22vw, 0.78));
-    margin-bottom: -8rem;
-  }
-
-  .proficiency-meta {
-    align-items: flex-start;
-  }
-
-  .prof-sub {
-    flex-basis: 100%;
-    text-align: left;
-  }
-
-  .works-archive-cta {
-    align-items: stretch;
-  }
-
-  .archive-cta-btn {
-    width: 100%;
-  }
-}
-
-@media (max-width: 22.5rem) {
-  .container {
-    width: min(100% - 1.5rem, 77.5rem);
-  }
-
-  .status-chip {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .lanyard-container {
-    transform: scale(0.68);
-    margin-bottom: -10rem;
-  }
 }
 

@@ -210,11 +210,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let animFrameId = null;
 
     // Responsive Top Offset:
-    // On Mobile/Tablet (< 992px): locks to 25px so it NEVER cuts across hero text!
+    // On Mobile/Tablet (< 992px): locks to 0 so strap emerges flush from mount bracket!
     // On Desktop (>= 992px): measures exact distance to browser top viewport
     const calculateTopOffset = () => {
       if (window.innerWidth < 992) {
-        topOffset = 25;
+        topOffset = 0;
       } else {
         const rect = lanyardContainer.getBoundingClientRect();
         topOffset = Math.max(0, rect.top);
@@ -380,12 +380,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateStrapSvg(x, y) {
       const containerWidth = 400;
       const originX = containerWidth / 2; // 200px
-      const clipEntryY = topOffset + (window.innerWidth < 992 ? 80 : 130) + y;
+      const clipEntryY = topOffset + (window.innerWidth < 992 ? 75 : 130) + y;
       const clipX = originX + x;
 
       const topAnchorLeft = originX - 16;
       const topAnchorRight = originX + 16;
-      const topY = window.innerWidth < 992 ? -180 : -10;
+      const topY = window.innerWidth < 992 ? 0 : -10;
 
       const lateralPull = x * 0.4;
       const sag = Math.max(12, 34 * (1 - Math.min(y, 200) / 450));
@@ -1010,10 +1010,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let isDeleting = false;
     let isWaiting = true;
 
-    // Formatting with gradient accent
+    // Formatting with gradient accent & layout stability
     const formatHeadline = (str) => {
-      if (str.includes("Sukma Jaya.")) {
-        return str.replace("Sukma Jaya.", '<span class="gradient-text">Sukma Jaya.</span>');
+      if (!str) return "&nbsp;";
+      if (str.startsWith("Mu'Arif ")) {
+        const prefix = "Mu'Arif ";
+        const rest = str.slice(prefix.length);
+        if (rest) {
+          return `${prefix}<span class="gradient-text">${rest}</span>`;
+        }
+        return prefix;
       }
       return str;
     };
